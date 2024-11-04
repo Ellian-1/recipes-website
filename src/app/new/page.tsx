@@ -9,6 +9,12 @@ type Props = {
 };
 
 const NewPage = ({ params }: Props) => {
+  const router = useRouter();
+
+  const [name, setName] = useState("");
+  const [steps, setSteps] = useState("");
+  const [image, setImage] = useState("");
+
   return <div>NewPage</div>;
 };
 
