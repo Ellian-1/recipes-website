@@ -1,6 +1,14 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-const NewPage = () => {
+type Props = {
+  params: {
+    id: number;
+  };
+};
+
+const NewPage = ({ params }: Props) => {
   return <div>NewPage</div>;
 };
 
