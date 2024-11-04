@@ -15,6 +15,18 @@ const NewPage = ({ params }: Props) => {
   const [steps, setSteps] = useState("");
   const [image, setImage] = useState("");
 
+  useEffect(() => {
+    if (params.id) {
+      fetch(`/api/recipes/${params.id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setName(data.name);
+          setSteps(data.steps);
+          setImage(data.image);
+        });
+    }
+  }, []);
+
   return <div>NewPage</div>;
 };
 
