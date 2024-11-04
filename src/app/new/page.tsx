@@ -56,7 +56,7 @@ const NewPage = ({ params }: Props) => {
   };
 
   return (
-    <form className="max-w-sm mx-auto">
+    <form className="max-w-sm mx-auto" onSubmit={onSubmit}>
       <div className="mb-5">
         <label
           htmlFor="email"
@@ -69,6 +69,8 @@ const NewPage = ({ params }: Props) => {
           id="email"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Name"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
           required
         />
       </div>
@@ -84,6 +86,8 @@ const NewPage = ({ params }: Props) => {
           id="password"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Steps"
+          onChange={(e) => setSteps(e.target.value)}
+          value={steps}
           required
         />
       </div>
@@ -99,6 +103,8 @@ const NewPage = ({ params }: Props) => {
           id="password"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Image"
+          onChange={(e) => setImage(e.target.value)}
+          value={image}
           required
         />
       </div>
@@ -108,6 +114,23 @@ const NewPage = ({ params }: Props) => {
       >
         Submit
       </button>
+      {params.id && (
+        <button
+          type="button"
+          className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+          onClick={async () => {
+            const res = await fetch(`/api/recipes/${params.id}`, {
+              method: "DELETE",
+            });
+            const data = await res.json();
+
+            router.refresh();
+            router.push("/");
+          }}
+        >
+          Delete
+        </button>
+      )}
     </form>
   );
 };
