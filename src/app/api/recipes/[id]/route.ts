@@ -7,10 +7,11 @@ type Props = {
   };
 };
 
-export async function GET(request: any, { params }: Props) {
+export async function GET(request: any, { params }: any) {
+  const { id } = await params;
   const recipe = await prisma.recipe.findUnique({
     where: {
-      id: Number(params.id),
+      id: Number(id),
     },
   });
 
