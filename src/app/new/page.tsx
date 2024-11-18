@@ -65,7 +65,7 @@ const NewPage = ({ params }: Props) => {
           Name:
         </label>
         <input
-          type="email"
+          type="text"
           id="email"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Name"
@@ -76,13 +76,13 @@ const NewPage = ({ params }: Props) => {
       </div>
       <div className="mb-5">
         <label
-          htmlFor="password"
+          htmlFor="text"
           className="block mb-2 text-sm font-medium text-white dark:text-gray-900"
         >
           Steps:
         </label>
         <input
-          type="password"
+          type="text"
           id="password"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Steps"
@@ -99,7 +99,7 @@ const NewPage = ({ params }: Props) => {
           Image:
         </label>
         <input
-          type="password"
+          type="text"
           id="password"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Image"

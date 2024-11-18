@@ -19,24 +19,26 @@ export async function GET(request: any, { params }: any) {
 }
 
 export async function PUT(request: any, { params }: Props) {
+  const { id } = await params;
   const data = await request.json();
   const recipeUpdated = await prisma.recipe.update({
     where: {
-      id: params.id,
+      id: Number(id),
     },
     data: data,
   });
-  return NextResponse.json(`Actualizando recetas ${params.id}`);
+  return NextResponse.json(`Actualizando receta ${id}`);
 }
 
-export async function DELETE({ params }: Props) {
+export async function DELETE(request: any, { params }: Props) {
+  const { id } = await params;
   try {
     const recipeRemoved = await prisma.recipe.delete({
       where: {
-        id: params.id,
+        id: Number(id),
       },
     });
-    return NextResponse.json(`Eliminando recetas ${params.id}`);
+    return NextResponse.json(`Eliminando receta ${id}`);
   } catch (error: any) {
     return NextResponse.json(error.message);
   }
